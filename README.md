@@ -1,4 +1,5 @@
 # growthmaps
+<<<<<<< HEAD
 
 > The best way to achieve your vision and grow.
 
@@ -28,3 +29,10 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+Pre-requisites:
+1. npm install -g vue-cli
+2. npm install growthmaps
+3. cd growthmaps
+4. npm run dev
+>>>>>>> 77cce312270afa0642def239c6c22ca44c8f9d2e
