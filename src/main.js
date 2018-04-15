@@ -19,7 +19,7 @@ Vue.use(Vuetify, {
     secondary: "#09BC8A", //colors.orange.lighten1, // #FFCDD2
     accent: "#E84855", //colors.indigo.base, // #3F51B5
     google: colors.blue.darken1,
-    error: "#FF9B71",
+    error: "#E84855",
     warning: "#FF9B71",
     info: "#FFFD82",
     success: "#09BC8A"

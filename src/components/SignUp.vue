@@ -1,5 +1,5 @@
 <template>
- <v-content>
+ <v-content transition="slide-x-transition">
   <v-container fluid fill-height>
       <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4 lg3>
@@ -12,7 +12,7 @@
                        <h1 class="hidden-md-and-down text-xs-center">{{ title }}</h1>
                        <h3 class="hidden-md-and-down text-xs-center">{{ subheading }}</h3> 
 
-                         <form>
+                         <v-form v-model="valid" ref="form" @submit.prevent="signup">
                             <v-layout row>
                                 <v-flex xs12>
                                     <v-text-field
@@ -22,6 +22,7 @@
                                     v-model="email"
                                     type="email"
                                     required
+                                    :rules="emailRules"
                                     >
 
                                     </v-text-field>
@@ -34,8 +35,26 @@
                                     label="Password"
                                     id="password" 
                                     v-model="password"
-                                    type="password"
                                     required
+                                    min="8"
+                                    type="password"
+                                    :rules="passwordRules"
+
+                                    >
+
+                                    </v-text-field>
+                                </v-flex>
+                            </v-layout>
+                             <v-layout row>
+                                <v-flex xs12>
+                                    <v-text-field
+                                    name = "confirmPassword"
+                                    label="Confirm Password"
+                                    id="confirmPassword" 
+                                    v-model="confirmPassword"
+                                    required
+                                    type="password"
+                                    :rules="[comparePasswords]"
                                     >
 
                                     </v-text-field>
@@ -43,7 +62,7 @@
                             </v-layout>
                             <v-layout row>
                                 <v-flex xs12>
-                                   <v-btn  block dark v-on:click="signup"  type="submit" color="primary">Sign Up</v-btn>
+                                   <v-btn  block dark v-on:click="signup"  type="submit" color="primary" >Sign Up</v-btn>
                                 </v-flex>
                             </v-layout>
                              <v-layout row justify-center align-center>
@@ -51,10 +70,10 @@
                              </v-layout>
                             <v-layout row>
                                 <v-flex xs12>
-                                   <v-btn  block dark v-on:click="signupViaGoogle" type="submit" color="google">Sign Up with Google</v-btn>
+                                   <v-btn  block dark v-on:click="signupViaGoogle" type="submit" color="google"><v-icon left dark>cloud_upload</v-icon>Sign Up with Google</v-btn>
                                 </v-flex>
                             </v-layout>
-                         </form>
+                         </v-form>
                      </v-container>
                 </v-card-text>
               </v-card>
@@ -77,31 +96,49 @@ export default {
   name: 'signup',
   data: function() {
       return {
+          valid: false,
           title: "Achieve your growth goals",
           subheading: "Create your first GrowthMap today",
           email: "",
           password: "",
-          error: ""
+          confirmPassword: "",
+          error: "",
+          emailRules: [
+               v => !!v || 'Email is required',
+               v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email must be valid'
+          ],
+          passwordRules: [
+               v => !!v || 'Password is required',
+               v => v.length >= 8 || 'Password must be at least 8'
+          ]
       };
   },
+  computed: {
+      comparePasswords () {
+        return this.password !== this.confirmPassword ? 'Passwords do not match' : ''
+      }
+  },
+  
   methods: {
       signup: function(){
           var that = this;
-          firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-              function(user){
-                that.$router.replace('welcome');
-               
-              },
-              function(err){
-                console.log(err);
-                if (err.code == "auth/invalid-email"){
-                    that.error = "Invalid email address.";
-                }else{
-                    that.error = err.message;
-                }
+          if (this.$refs.form.validate()) {
+            firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+                function(user){
+                    that.$router.replace('welcome');
                 
-              }
-          );
+                },
+                function(err){
+                    console.log(err);
+                    if (err.code == "auth/invalid-email"){
+                        that.error = "Invalid email address.";
+                    }else{
+                        that.error = err.message;
+                    }
+                    
+                }
+            );
+          }
       },
       signupViaGoogle: function(){
         var that = this;
