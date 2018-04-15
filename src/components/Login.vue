@@ -1,5 +1,7 @@
 <template>
   <div class="login">
+      <img src="../assets/logo.png">
+  
       <h3>{{ title }}</h3>
       <input type="text" placeholder="Email" v-model="email" /> <br/>
       <input type="password" placeholder="Password"  v-model="password" /> <br/>

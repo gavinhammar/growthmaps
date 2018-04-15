@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import Welcome from '@/components/Welcome'
+import Home from '@/components/Home'
 
 import firebase from 'firebase'
 
@@ -33,6 +34,14 @@ let router = new Router({
       path: '/welcome',
       name: 'Welcome',
       component: Welcome,
+      meta:{
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'Home',
+      component: Home,
       meta:{
         requiresAuth: true
       }
