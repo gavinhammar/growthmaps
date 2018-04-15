@@ -1,15 +1,65 @@
 <template>
-  <div class="signup">
-      <h3>{{ title }}</h3>
-      <p>Let's create a new account</p>
-      <input type="text" placeholder="Email" v-model="email" /> <br/>
-      <input type="password" placeholder="Password" v-model="password" /> <br/>
-      <span class="error">{{ error }}</span>
-      <button v-on:click="signup">Sign Up</button>
-      <button v-on:click="signupViaGoogle">Google Sign Up</button>
-      <p>Already have an account? <router-link to="/login">Login here</router-link></p>
+  <v-container class="signup">
+      <v-layout>
+          <v-flex xs12 sm6 offset-sm3>
+              <v-card>
+                <v-card-text>
+                     <v-container>
+                        <h3>{{ title }}</h3>
+                        <p>Let's create a new account</p>
+               
+                         <form>
+                            <v-layout row>
+                                <v-flex xs12>
+                                    <v-text-field
+                                    name = "email"
+                                    label="Email"
+                                    id="email" 
+                                    v-model="email"
+                                    type="email"
+                                    required
+                                    >
 
-  </div>
+                                    </v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row>
+                                <v-flex xs12>
+                                    <v-text-field
+                                    name = "password"
+                                    label="Password"
+                                    id="email" 
+                                    v-model="password"
+                                    type="password"
+                                    required
+                                    >
+
+                                    </v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row>
+                                <v-flex xs12>
+                                   <v-btn  v-on:click="signup"  type="submit">Sign Up</v-btn>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row>
+                                <v-flex xs12>
+                                   <v-btn  v-on:click="signupViaGoogle" type="submit">Sign Up with Google</v-btn>
+                                </v-flex>
+                            </v-layout>
+                         </form>
+                     </v-container>
+                </v-card-text>
+              </v-card>
+                 <span class="error">{{ error }}</span>
+               
+                <p>Already have an account? <router-link to="/login">Login here</router-link></p>
+
+          </v-flex>
+      </v-layout>
+     
+
+  </v-container>
 </template>
 
 <script>
@@ -64,7 +114,7 @@ export default {
 </script>
 
 <style scoped>
-    .signup{
+  /*  .signup{
         margin-top: 40px;
     }
     .error{
@@ -84,5 +134,5 @@ export default {
     p{
         margin-top: 10px;
         font-size: 13px;
-    }
+    }*/
 </style>
