@@ -79,7 +79,7 @@
               </v-card>
                <span class="error">{{ error }}</span>
                <v-layout row justify-center align-center class="mt-3">
-                <p>Already have an account? <router-link to="/login">Login here</router-link></p>
+                <p>Already have an account? <router-link to="/login">Sign in</router-link></p>
                </v-layout>
           </v-flex>
       </v-layout>
@@ -164,25 +164,5 @@ export default {
        width: 64px;
        margin-top:40px;
     }
-  /*  .signup{
-        margin-top: 40px;
-    }
-    .error{
-        color: red;
-        display:block;
-       
-    }
-    input{
-        margin: 3px 0;
-        width: 10%;
-        padding: 5px;
-    }
-    button{
-        margin-top: 20px;
-        width: 10%;
-    }
-    p{
-        margin-top: 10px;
-        font-size: 13px;
-    }*/
+ 
 </style>
