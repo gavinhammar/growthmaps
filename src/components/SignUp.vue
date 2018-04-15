@@ -60,9 +60,16 @@
                                     </v-text-field>
                                 </v-flex>
                             </v-layout>
+                             <v-layout row>
+                                <v-flex xs12>
+                                <v-alert type="error" :value="error != ''">
+                                {{ error }}
+                                </v-alert>
+                                </v-flex>
+                            </v-layout>
                             <v-layout row>
                                 <v-flex xs12>
-                                   <v-btn  block dark v-on:click="signup"  type="submit" color="primary" >Sign Up</v-btn>
+                                   <v-btn  block dark type="submit" color="primary" >Sign Up</v-btn>
                                 </v-flex>
                             </v-layout>
                              <v-layout row justify-center align-center>
@@ -77,7 +84,6 @@
                      </v-container>
                 </v-card-text>
               </v-card>
-               <span class="error">{{ error }}</span>
                <v-layout row justify-center align-center class="mt-3">
                 <p>Already have an account? <router-link to="/login">Sign in</router-link></p>
                </v-layout>
@@ -122,7 +128,7 @@ export default {
   methods: {
       signup: function(){
           var that = this;
-          if (this.$refs.form.validate()) {
+          //if (this.$refs.form.validate()) {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                 function(user){
                     that.$router.replace('welcome');
@@ -138,7 +144,7 @@ export default {
                     
                 }
             );
-          }
+          //}
       },
       signupViaGoogle: function(){
         var that = this;

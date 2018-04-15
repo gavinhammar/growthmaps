@@ -66,7 +66,7 @@
                             </v-layout>
                             <v-layout row>
                                 <v-flex xs12>
-                                   <v-btn  block dark v-on:click="login"  type="submit" color="primary" >Sign in</v-btn>
+                                   <v-btn  block dark  type="submit" color="primary" >Sign in</v-btn>
                                 </v-flex>
                             </v-layout>
                              <v-layout row justify-center align-center>
