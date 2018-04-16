@@ -2,15 +2,15 @@
  <v-content transition="slide-x-transition">
   <v-container fluid fill-height>
       <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg3>
+          <v-flex xs12 sm8 md4 lg4>
               <v-card class="elevation-6">
                 <v-layout row justify-center align-center >
                     <img  justify-center src="../assets/logo.png" class="logo" >
                 </v-layout>
                 <v-card-text>
                      <v-container>
-                       <h1 class="hidden-md-and-down text-xs-center">{{ title }}</h1>
-                       <h3 class="hidden-md-and-down text-xs-center">{{ subheading }}</h3> 
+                       <h2 class="hidden-md-and-down text-xs-center">{{ title }}</h2>
+                       <h4 class="hidden-md-and-down text-xs-center">{{ subheading }}</h4>
 
                          <v-form v-model="valid" ref="form" @submit.prevent="signup">
                             <v-layout row>
@@ -18,7 +18,7 @@
                                     <v-text-field
                                     name = "email"
                                     label="Email"
-                                    id="email" 
+                                    id="email"
                                     v-model="email"
                                     type="email"
                                     required
@@ -33,7 +33,7 @@
                                     <v-text-field
                                     name = "password"
                                     label="Password"
-                                    id="password" 
+                                    id="password"
                                     v-model="password"
                                     required
                                     min="8"
@@ -50,7 +50,7 @@
                                     <v-text-field
                                     name = "confirmPassword"
                                     label="Confirm Password"
-                                    id="confirmPassword" 
+                                    id="confirmPassword"
                                     v-model="confirmPassword"
                                     required
                                     type="password"
@@ -89,7 +89,7 @@
                </v-layout>
           </v-flex>
       </v-layout>
-     
+
 
   </v-container>
  </v-content>
@@ -124,7 +124,7 @@ export default {
         return this.password !== this.confirmPassword ? 'Passwords do not match' : ''
       }
   },
-  
+
   methods: {
       signup: function(){
           var that = this;
@@ -132,7 +132,7 @@ export default {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                 function(user){
                     that.$router.replace('welcome');
-                
+
                 },
                 function(err){
                     console.log(err);
@@ -141,7 +141,7 @@ export default {
                     }else{
                         that.error = err.message;
                     }
-                    
+
                 }
             );
           //}
@@ -153,7 +153,7 @@ export default {
             var token = result.credential.accessToken;
             var user = result.user;
             that.$router.replace('welcome');
-           
+
         }).catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -170,5 +170,5 @@ export default {
        width: 64px;
        margin-top:40px;
     }
- 
+
 </style>

@@ -2,7 +2,7 @@
  <v-content transition="slide-x-transition">
   <v-container fluid fill-height>
       <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg3>
+          <v-flex xs12 sm8 md4 lg4>
               <v-card class="elevation-6">
                 <v-layout row justify-center align-center >
                     <img  justify-center src="../assets/logo.png" class="logo" >
@@ -10,14 +10,14 @@
                 <v-card-text>
                      <v-container>
                        <h1 class="hidden-md-and-down text-xs-center">{{ title }}</h1>
-                      
+
                          <v-form v-model="valid" ref="form" @submit.prevent="login">
                             <v-layout row>
                                 <v-flex xs12>
                                     <v-text-field
                                     name = "email"
                                     label="Email"
-                                    id="email" 
+                                    id="email"
                                     v-model="email"
                                     type="email"
                                     required
@@ -32,7 +32,7 @@
                                     <v-text-field
                                     name = "password"
                                     label="Password"
-                                    id="password" 
+                                    id="password"
                                     v-model="password"
                                     required
                                     min="8"
@@ -47,7 +47,7 @@
                                     <v-checkbox
                                     name = "rememberMe"
                                     label="Remember me"
-                                    id="rememberMe" 
+                                    id="rememberMe"
                                     v-model="rememberMe"
                                     >
 
@@ -78,14 +78,14 @@
                                 </v-flex>
                             </v-layout>
                          </v-form>
-                         
+
                      </v-container>
                 </v-card-text>
               </v-card>
-             
+
                <v-layout row justify-center align-center class="mt-3">
                <p class="text-lg-left">Don't have an account? <router-link to="/signup">Sign up now</router-link></p>
-               
+
                </v-layout>
           </v-flex>
       </v-layout>
@@ -100,7 +100,7 @@ export default {
   name: 'login',
   data: function() {
       return {
-          title: "Sign In", 
+          title: "Sign In",
           valid: false,
           email: "",
           error: "",
@@ -126,7 +126,7 @@ export default {
 
                 );
         }
-        
+
       },
       loginViaGoogle: function(){
         var that = this;
@@ -135,7 +135,7 @@ export default {
             var token = result.credential.accessToken;
             var user = result.user;
             that.$router.replace('welcome');
-           
+
         }).catch(function(error) {
             var errorCode = error.code;
             var errorMessage = error.message;
