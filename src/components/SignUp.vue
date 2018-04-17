@@ -2,7 +2,7 @@
  <v-content transition="slide-x-transition">
   <v-container fluid fill-height>
       <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg4>
+          <v-flex xs12 sm8 md4 lg3>
               <v-card class="elevation-6">
                 <v-layout row justify-center align-center >
                     <img  justify-center src="../assets/logo.png" class="logo" >
