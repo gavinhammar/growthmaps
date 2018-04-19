@@ -146,6 +146,11 @@ export default {
                 function(user){
                     that.$router.replace('welcome');
 
+                    user.updateProfile({
+                        displayName: that.displayName
+                    }).then(function() {
+                        that.$router.replace('welcome');
+                    });
                 },
                 function(err){
                     console.log(err);
