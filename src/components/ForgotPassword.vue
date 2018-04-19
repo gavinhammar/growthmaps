@@ -47,7 +47,7 @@
               </v-card>
 
                <v-layout row justify-center align-center class="mt-3">
-               <p class="text-lg-left"><router-link to="/signup">Back to sign in</router-link></p>
+               <p class="text-lg-left"><router-link to="/login">Back to sign in</router-link></p>
 
                </v-layout>
           </v-flex>

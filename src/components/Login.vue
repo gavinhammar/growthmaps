@@ -41,22 +41,9 @@
 
                                     </v-text-field>
                                 </v-flex>
+                                
                             </v-layout>
-                            <v-layout row>
-                                <v-flex xs12 lg6>
-                                    <v-checkbox
-                                    name = "rememberMe"
-                                    label="Remember me"
-                                    id="rememberMe"
-                                    v-model="rememberMe"
-                                    >
-
-                                    </v-checkbox>
-                                </v-flex>
-                                <v-flex xs12 lg6>
-                                    <p class="text-xs-right"><router-link to="/forgotpassword">Forgot password?</router-link></p>
-                                </v-flex>
-                            </v-layout>
+                                
                             <v-layout row>
                                 <v-flex xs12>
                                 <v-alert type="error" :value="error != ''">
@@ -83,9 +70,11 @@
                 </v-card-text>
               </v-card>
 
-               <v-layout row justify-center align-center class="mt-3">
-               <p class="text-lg-left">Don't have an account? <router-link to="/signup">Sign up now</router-link></p>
-
+                <v-layout row justify-center align-center class="mt-3">
+                    <p class="text-lg-left"><router-link to="/forgotpassword?">Forgot password?</router-link></p>
+                </v-layout>
+                <v-layout row justify-center align-center class="mt-3">
+                    <p class="text-lg-left">Don't have an account? <router-link to="/signup">Sign up now</router-link></p>
                </v-layout>
           </v-flex>
       </v-layout>
