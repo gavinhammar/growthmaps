@@ -54,7 +54,7 @@
                                     </v-checkbox>
                                 </v-flex>
                                 <v-flex xs12 lg6>
-                                    <p class="text-xs-right"><router-link to="/signup">Forgot password?</router-link></p>
+                                    <p class="text-xs-right"><router-link to="/forgotpassword">Forgot password?</router-link></p>
                                 </v-flex>
                             </v-layout>
                             <v-layout row>
@@ -131,7 +131,7 @@ export default {
       loginViaGoogle: function(){
         var that = this;
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithRedirect(provider).then(function(result) {
             var token = result.credential.accessToken;
             var user = result.user;
             that.$router.replace('welcome');

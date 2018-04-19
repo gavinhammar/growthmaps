@@ -89,7 +89,7 @@
                              </v-layout>
                             <v-layout row>
                                 <v-flex xs12>
-                                   <v-btn  block dark v-on:click="signupViaGoogle" type="submit" color="google"><v-icon left dark>cloud_upload</v-icon>Sign Up with Google</v-btn>
+                                   <v-btn  block dark v-on:click="signupViaGoogle" type="button" color="google"><v-icon left dark>cloud_upload</v-icon>Sign Up with Google</v-btn>
                                 </v-flex>
                             </v-layout>
                          </v-form>
@@ -165,7 +165,7 @@ export default {
       signupViaGoogle: function(){
         var that = this;
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithRedirect(provider).then(function(result) {
             var token = result.credential.accessToken;
             var user = result.user;
             that.$router.replace('welcome');

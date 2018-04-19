@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
+import ForgotPassword from '@/components/ForgotPassword'
+
 import Welcome from '@/components/Welcome'
 import Home from '@/components/Home'
 
@@ -29,6 +31,11 @@ let router = new Router({
       path: '/signup',
       name: 'Signup',
       component: SignUp
+    },
+    {
+      path: '/forgotpassword',
+      name: 'forgotpassword',
+      component: ForgotPassword
     },
     {
       path: '/welcome',
