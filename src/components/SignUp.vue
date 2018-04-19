@@ -144,8 +144,6 @@ export default {
           //if (this.$refs.form.validate()) {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                 function(user){
-                    that.$router.replace('welcome');
-
                     user.updateProfile({
                         displayName: that.displayName
                     }).then(function() {
