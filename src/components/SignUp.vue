@@ -16,6 +16,18 @@
                             <v-layout row>
                                 <v-flex xs12>
                                     <v-text-field
+                                    name = "displayName"
+                                    label="Name"
+                                    id="displayName"
+                                    v-model="displayName"
+                                    required
+                                    >
+                                    </v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row>
+                                <v-flex xs12>
+                                    <v-text-field
                                     name = "email"
                                     label="Email"
                                     id="email"
@@ -105,6 +117,7 @@ export default {
           valid: false,
           title: "Achieve your growth goals",
           subheading: "Create your first GrowthMap today",
+          displayName: "",
           email: "",
           password: "",
           confirmPassword: "",
