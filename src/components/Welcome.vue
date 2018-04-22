@@ -1,10 +1,14 @@
 <template>
-  <div class="welcome">
-      <h3>{{ title }}</h3>
+ <div>
+  <v-toolbar ></v-toolbar>
+  <v-navigation-drawer ></v-navigation-drawer>
+     <v-content>
+         <h3>{{ title }}</h3>
       <h4>Hello, {{ user.displayName? user.displayName : user.email}}</h4>
         <img :src="user.photoURL" />
         Signed Up: {{ user.metadata.creationTime}}
       <button v-on:click="logout">Logout</button>
+    </v-content>
   </div>
 </template>
 
