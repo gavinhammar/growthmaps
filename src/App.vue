@@ -1,19 +1,25 @@
 <template>
-  <v-app id="app">
-  
-  
-    <v-content>
-     
-        <router-view></router-view>
-    </v-content>
-      
-  </v-app>
+    <component :is="component">
+        <slot />
+    </component> 
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+    import Basic from './layouts/Basic'
+    
+    export default {
+        name: 'App',
+        components: {
+            Basic
+        },
+        computed: {
+            component () {
+                return  Basic
+            }
+        }
+    }
+
+
 </script>
 
 <style>

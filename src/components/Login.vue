@@ -1,4 +1,5 @@
 <template>
+<logged-out-layout>
  <v-content transition="slide-x-transition">
   <v-container fluid fill-height>
       <v-layout align-center justify-center>
@@ -80,13 +81,18 @@
       </v-layout>
     </v-container>
  </v-content>
+ </logged-out-layout>
 </template>
 
 <script>
 import firebase from 'firebase';
+import LoggedOutLayout from '@/layouts/loggedout'
 
 export default {
   name: 'login',
+  components: {
+    LoggedOutLayout
+  },
   data: function() {
       return {
           title: "Sign In",

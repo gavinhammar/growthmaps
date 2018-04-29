@@ -5,6 +5,9 @@ import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import ForgotPassword from '@/components/ForgotPassword'
 
+import LoggedIn from '@/layouts/LoggedIn'
+import Dashboard from '@/layouts/Dashboard'
+
 import Welcome from '@/components/Welcome'
 import Home from '@/components/Home'
 
@@ -48,7 +51,14 @@ let router = new Router({
     {
       path: '/dashboard',
       name: 'Home',
-      component: Home,
+      component: Dashboard,
+      children: [
+            {
+                path: 'welcome',
+                name: 'dashboard.welcome',
+                component: () => Welcome
+            }
+        ],
       meta:{
         requiresAuth: true
       }
