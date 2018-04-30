@@ -14,7 +14,7 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 Vue.use(Vuetify, {
-  theme: {
+  /*theme: {
     primary: "#003973", //colors.orange.darken2, // #E53935
     secondary: "#09BC8A", //colors.orange.lighten1, // #FFCDD2
     accent: "#E84855", //colors.indigo.base, // #3F51B5
@@ -23,7 +23,7 @@ Vue.use(Vuetify, {
     warning: "#FF9B71",
     info: "#FFFD82",
     success: "#09BC8A"
-  }
+  }*/
 }
 )
 

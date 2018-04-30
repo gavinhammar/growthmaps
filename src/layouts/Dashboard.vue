@@ -1,25 +1,27 @@
 <template>
-    <v-app>
-         <v-content>test
-             <logged-in-layout>
-                <router-view />
-             </logged-in-layout>
-        </v-content>
-    </v-app>
+    <logged-in-layout>
+        <div>
+            <h4>Welcome back, {{ user.displayName? user.displayName : user.email}}</h4>
+        </div>
+    </logged-in-layout>
 </template>
 
 <script>
-    import LoggedInLayout from '@/layouts/loggedin'
-    export default {
-        name: 'Dashboard',
-        components: {
-            LoggedInLayout
-            },
-        data () {
-            return {}
+import LoggedInLayout from '@/layouts/loggedin'
+import firebase from 'firebase';
+
+export default {
+    name: 'Dashboard',
+    components: {
+        LoggedInLayout
         },
-        methods: {
-           
-        }
+    data: function() {
+        return {
+            user: firebase.auth().currentUser
+        };
+    },
+    methods: {
+        
     }
+}
 </script>
