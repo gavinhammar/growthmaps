@@ -117,17 +117,7 @@
                 <span>2 unread notifications</span>
             </v-tooltip>
          </v-toolbar>
-
-         <v-content>
-            <v-container fill-height>
-             <v-layout justify-left align-left>
-                 <v-flex shrink>
-                    <slot/>
-                 </v-flex>
-             </v-layout>
-            </v-container>
-        </v-content>
-     
+         <slot/>
     </v-app>
 </template>
 

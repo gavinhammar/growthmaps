@@ -113,7 +113,7 @@ export default {
         if (this.$refs.form.validate()) {
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                     function(user){
-                        that.$router.replace('welcome');
+                        that.$router.replace('dashboard');
                     },
                     function(err){
                         that.error = "Incorrect email and password. Please try again."
