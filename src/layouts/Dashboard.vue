@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import LoggedInLayout from '@/layouts/loggedin'
+import LoggedInLayout from '@/layouts/LoggedIn'
 import GrowthMapView from '@/components/GrowthMap/view'
 import firebase from 'firebase';
 

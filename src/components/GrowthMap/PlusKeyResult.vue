@@ -1,9 +1,9 @@
 <template>
-    <v-flex justify-center class="pt-4 " xs3>
+    <v-flex justify-center class="pt-4 " xs12>
          <v-btn fab dark medium color="secondary">
              <v-icon dark>add</v-icon>
         </v-btn>
-        <div>Add another objective</div>
+        <div>Add a key result</div>
     </v-flex>
 </template>
 
@@ -12,7 +12,7 @@
 import firebase from 'firebase';
 
 export default {
-  name: 'PlusObjective',
+  name: 'PlusKeyResult',
   props: ['type'],
   data: function() {
       return {

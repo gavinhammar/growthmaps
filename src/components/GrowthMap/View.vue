@@ -49,7 +49,7 @@
 
 <script>
 import firebase from 'firebase';
-import GrowthMap from '@/components/GrowthMap/map';
+import GrowthMap from '@/components/GrowthMap/Map';
 
 export default {
   name: 'View',
