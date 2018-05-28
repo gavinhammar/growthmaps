@@ -1,6 +1,7 @@
 <template>
-   <div>
+   <div >
         <v-container grid-list-md text-xs-center>
+            <v-btn dark color="pink" @click.stop="drawer = !drawer">Toggle</v-btn>
             <v-layout row wrap justify-center>
                 <objective :objective="growthmap.vision" xs4 md4 lg3></objective>
             </v-layout>
@@ -13,6 +14,12 @@
             </v-layout>-->
             
         </v-container>
+        <v-navigation-drawer v-model="drawer"
+        temporary
+        absolute right
+        width="400">
+        test
+        </v-navigation-drawer>
    </div>
 </template>
 
@@ -33,6 +40,7 @@ export default {
   },
   data: function() {
       return {
+          drawer: null,
           user: firebase.auth().currentUser,
           growthmap: {
               vision: {

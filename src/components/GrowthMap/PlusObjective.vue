@@ -3,7 +3,7 @@
          <v-btn fab dark medium color="secondary">
              <v-icon dark>add</v-icon>
         </v-btn>
-        <div>Add another objective</div>
+        <div>Add an objective</div>
     </v-flex>
 </template>
 

@@ -32,7 +32,7 @@
       </v-toolbar >
       <v-container>
           <v-tabs-items v-model="tabs" >
-            <v-tab-item  id="tab-map">
+            <v-tab-item  id="tab-map" style="scroll:auto;">
                 <growth-map :mode="mode"></growth-map>
             </v-tab-item>
             <v-tab-item  id="tab-settings">
