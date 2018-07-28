@@ -7,18 +7,18 @@
             </v-layout>
             <v-layout row wrap justify-center >
                  <objective v-for="(objective, index) in growthmap.objectives" :key="objective.id" :objective="objective" :index="index" :count="growthmap.objectives.length"></objective>
-                 <plus-objective></plus-objective>
+                 <plus-objective v-on:click="addObjective"></plus-objective>
             </v-layout>
            <!-- <v-layout row wrap justify-center >
                 <plus-key-result></plus-key-result>
             </v-layout>-->
             
         </v-container>
-        <v-navigation-drawer v-model="drawer"
+        <v-navigation-drawer v-model="drawer" ref="drawer"
         temporary
         absolute right
         width="400">
-        test
+            <new-objective v-bind:objectives.sync="growthmap.objectives"></new-objective>
         </v-navigation-drawer>
    </div>
 </template>
@@ -28,6 +28,7 @@
 import firebase from 'firebase';
 import Objective from '@/components/GrowthMap/Objective';
 import PlusObjective from '@/components/GrowthMap/PlusObjective';
+import NewObjective from '@/components/GrowthMap/NewObjective';
 import PlusKeyResult from '@/components/GrowthMap/PlusKeyResult';
 
 export default {
@@ -36,11 +37,13 @@ export default {
   components: {
       Objective,
       PlusObjective,
-      PlusKeyResult
+      PlusKeyResult,
+      NewObjective
   },
   data: function() {
       return {
           drawer: null,
+          drawerItems: [Objective],
           user: firebase.auth().currentUser,
           growthmap: {
               vision: {
@@ -75,6 +78,9 @@ export default {
       };
   },
   methods: {
+      addObjective: function(){
+         this.drawer = true;
+      },
       logout: function() {
         firebase.auth().signOut().then(() =>
            {

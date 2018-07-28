@@ -6,7 +6,7 @@
                 <div> {{ objective.title === ""? "What's your company's vision?" : objective.title }}</div>
                 <v-btn small color="primary">Set a Vision</v-btn>
             </v-container>
-            <v-container v-if="objective.type=='objective'">
+            <v-container v-if="objective.type!='vision'">
                 <h4>Objective {{index + 1}}</h4>
                 <div>{{ objective.title === ""? "What's your objective?" : objective.title }}</div>
                 <v-btn small color="primary">Set an Objective</v-btn>
