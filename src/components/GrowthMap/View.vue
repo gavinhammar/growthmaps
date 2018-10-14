@@ -37,7 +37,7 @@
             </v-tab-item>
             <v-tab-item  id="tab-settings">
                 Settings Tab
-            </v-tab-item id="tab-performance">
+            </v-tab-item>
             <v-tab-item id="tab-performance">
                 Performance Tab
             </v-tab-item>
@@ -58,16 +58,15 @@ export default {
     GrowthMap
   },
   data: function() {
-
       return {
-           tabs: null,
-          user: firebase.auth().currentUser
+        tabs: null,
+        user: firebase.auth().currentUser
       };
   },
   methods: {
       logout: function() {
         firebase.auth().signOut().then(() =>
-           {
+            {
                 this.$router.replace('login')
             }
 

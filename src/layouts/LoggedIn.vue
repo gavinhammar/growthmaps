@@ -1,5 +1,32 @@
 <template>
     <v-app >
+        <v-toolbar color="primary">
+                <v-toolbar-title  class="orange--text">Growthmaps</v-toolbar-title>
+                <v-toolbar-items class="hidden-sm-and-down white--text">
+                    <v-btn flat class="white--text">Home</v-btn>
+                    <v-btn flat class="white--text">Objectives</v-btn>
+                    <v-btn flat class="white--text">Plans</v-btn>
+                    <v-btn flat class="white--text">Conversations</v-btn>
+                </v-toolbar-items>
+                <v-spacer></v-spacer>
+                <v-toolbar-items class="hidden-sm-and-down">
+                    <v-btn flat>Admin</v-btn>
+                </v-toolbar-items>
+        </v-toolbar>
+       <!-- <v-toolbar dense card prominent>
+                <v-toolbar-title>Growthmaps</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn flat>Link One</v-btn>
+                <v-btn flat>Link Two</v-btn>
+                <v-btn flat>Link Three</v-btn>
+                </v-toolbar-items>
+        </v-toolbar>
+        -->
+        <slot/>
+        
+        <!--
+        <v-toolbar>
         <v-navigation-drawer  width="295"
                 class="blue-grey darken-4"
                 dark
@@ -118,6 +145,7 @@
             </v-tooltip>
          </v-toolbar>
          <slot/>
+         -->
     </v-app>
 </template>
 
